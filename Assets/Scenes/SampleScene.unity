@@ -154,6 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88cc944fd68bc6a4ebf58be3dbf9bce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boardId: -1
 --- !u!212 &344636505
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -292,7 +293,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.2830189, g: 0.26610896, b: 0.26610896, a: 0}
+  m_BackGroundColor: {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -431,8 +432,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.29595345, g: 0.7903166, b: 0.8113208, a: 1}
-      key1: {r: 0.29595345, g: 0.7903166, b: 0.8113208, a: 1}
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 1, g: 1, b: 1, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -559,7 +560,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.4056604, g: 0.40055773, b: 0.40126297, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -596,7 +597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 525fef4c2d4ca2f41a8664c02aef2c59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 5
 --- !u!50 &1513226846
 Rigidbody2D:
   serializedVersion: 4

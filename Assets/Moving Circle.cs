@@ -19,7 +19,7 @@ public class MovingPoint : MonoBehaviour
     {
         leftEdge = Camera.main.ScreenToWorldPoint(new Vector3(0, Screen.height / 2f, Camera.main.nearClipPlane));
         rightEdge = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height / 2f, Camera.main.nearClipPlane));
-        
+
         transform.position = leftEdge;
 
         mainReaction = FindObjectOfType<MainReaction>();
@@ -40,15 +40,13 @@ public class MovingPoint : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Collision Detected with: " + collision.gameObject.name);  // 添加这行
         if (collision.gameObject.GetComponent<MainReaction>())
         {
             shouldMove = true;
-            Color newColor = mainReaction.GetRandomColorAndApply();
-            spriteRenderer.color = newColor;
+            mainReaction.UpdateColorBasedOnLatestScore();  // 首先更新大圆的颜色
+            spriteRenderer.color = mainReaction.GetCurrentColor();  // 然后，将小圆的颜色设置为与大圆相同的颜色
         }
     }
-
 
     private void ResetPointAndMainCircle()
     {
@@ -58,4 +56,6 @@ public class MovingPoint : MonoBehaviour
         mainReaction.ResetColor();
     }
 }
+
+
 
