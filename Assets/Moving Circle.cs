@@ -43,8 +43,8 @@ public class MovingPoint : MonoBehaviour
         if (collision.gameObject.GetComponent<MainReaction>())
         {
             shouldMove = true;
-            mainReaction.UpdateColorBasedOnLatestScore();  // 首先更新大圆的颜色
-            spriteRenderer.color = mainReaction.GetCurrentColor();  // 然后，将小圆的颜色设置为与大圆相同的颜色
+            mainReaction.UpdateColorBasedOnLatestScore();
+            spriteRenderer.color = mainReaction.GetCurrentColor();
         }
     }
 
@@ -55,7 +55,13 @@ public class MovingPoint : MonoBehaviour
         shouldMove = true;
         mainReaction.ResetColor();
     }
+
+    public void StopMoving()
+    {
+        shouldMove = false;
+    }
 }
+
 
 
 

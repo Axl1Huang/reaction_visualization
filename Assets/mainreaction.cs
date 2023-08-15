@@ -1,6 +1,7 @@
 using UnityEngine;
 using brainflow;
 using Plugins.Restfulness;
+using TMPro;
 
 public class MainReaction : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class MainReaction : MonoBehaviour
     private int yellowCount = 0;
     private int greenCount = 0;
 
+    public TextMeshProUGUI resultText;
+
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -23,7 +26,7 @@ public class MainReaction : MonoBehaviour
         _predictor.OnRestfulnessScoreUpdated += OnRestfulnessScoreUpdated;
         _predictor.StartSession();
 
-        Invoke("EndSession", 60f);  // 结束会话的计时器
+        Invoke("EndSession", 60f);
     }
 
     private void Resize()
@@ -79,6 +82,12 @@ public class MainReaction : MonoBehaviour
         _predictor.StopSession();
         Debug.Log("Time end!");
         DisplayResultsInConsole();
+
+        MovingPoint point = FindObjectOfType<MovingPoint>();
+        if (point)
+        {
+            point.StopMoving();
+        }
     }
 
     private void DisplayResultsInConsole()
@@ -90,8 +99,11 @@ public class MainReaction : MonoBehaviour
 
         string results = $"Red: {redCount} ({redPercentage:0.0}%)\nYellow: {yellowCount} ({yellowPercentage:0.0}%)\nGreen: {greenCount} ({greenPercentage:0.0}%)";
         Debug.Log(results);
+        
+        resultText.text = results;
     }
 }
+
 
 
 
